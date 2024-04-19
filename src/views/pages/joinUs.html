@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../views/styles/images/markus/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Join Us</title>
+
+    <link href="../styles/css/joinUs.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <form>
+      <div class="text-center mb-4 font-color mt-4">
+        <img class="mb-4" src="../../views/styles/images/markus/logoMarkusGray.png" alt="" >
+        <h1 class="h2 mb-3 font-weight-normal ">Client Register</h1>
+        <p>Please fill in all fields in the form below. Before submitting, review the information to ensure it is correct.</p>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 font-color">
+            <label for="inputEmail">Email address</label>
+            <input type="email" id="inputEmail" class="form-control inputcolor" placeholder="name@email.com" required autofocus>
+        </div>
+        <div class="form-group col-md-6 font-color">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control inputcolor" id="inputName" placeholder="First and Last name">
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6 font-color">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control inputcolor" id="inputPassword4">
+        </div>
+        <div class="form-group col-md-6 font-color">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control inputcolor" id="confirmPassword">
+        </div>
+      </div>
+      <div class="alert alert-warning" id="passwordWarning">
+        <p class="mb-0">Your password must have at least 6 charecters including: a numeric chatrecter, a capitalized letter <br>and one of the following special characters "@#$%&*!?/\-_+=."</p>
+      </div>
+      <div class="form-row font-color">
+        <div class="form-group col-md-5">
+          <label for="inputPhone">Phone Number</label>
+          <input type="tel" class="form-control inputcolor" id="inputPhone">
+        </div>
+        <div class="form-group col-md-3 font-color">
+          <label for="inputBirthday">Date of Birth</label>
+          <input type="text" class="form-control inputcolor" id="inputBirthday" placeholder="dd/mm/yyyy">
+        </div>
+        <div class="form-group col-md-4 font-color">
+          <label for="inputCpf">CPF</label>
+          <input type="text" class="form-control inputcolor" id="inputCpf">
+        </div>
+      </div>
+      <div class="form-row font-color">
+        <div class="form-group col-md-4">
+            <label for="inputEducation">Education level</label>
+            <select id="inputEducation" class="form-control inputcolor ">
+            <option value="1">Incomplete 1st degree</option>
+            <option value="2">Complete 1st degree</option>
+            <option value="3" selected>Complete 2nd degree</option>
+            <option value="4">Higher Education</option>
+            <option value="5">Postgraduate</option>
+            </select>
+        </div>
+        <div class="form-group col-md-8" style="display: grid;">
+            <label for="civil" class="ml-4">Civil Status</label>
+            <div >
+                <div class="form-check form-check-inline ml-5" >
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+                    <label class="form-check-label" for="inlineRadio1">Single</label>
+                </div>
+                <div class="form-check form-check-inline ml-3">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                    <label class="form-check-label" for="inlineRadio2">Married</label>
+                </div>
+                <div class="form-check form-check-inline ml-3">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                    <label class="form-check-label" for="inlineRadio2">Divorced</label>
+                </div>
+                <div class="form-check form-check-inline ml-3">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                    <label class="form-check-label" for="inlineRadio2">Widowed</label>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div style="justify-content: center;">
+        <button class="btn btn-lg btn-success btn-block mt-4" type="submit">Sign up</button>
+        <button class="btn btn-lg btn-outline-success btn-block" type="reset">Reset</button>
+      </div>
+      <p class="font-color text-center mt-4"> Already have an account? <a href="logIn.html">Log In</a></p>
+      <p class="mt-4 mb-3 text-muted text-center">&copy; 2022-2024 Markus, Inc</p>
+    </form>
+  </body>
+</html>
