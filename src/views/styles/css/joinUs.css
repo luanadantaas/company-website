@@ -124,5 +124,15 @@
   .alert-warning{
     font-size: 15px;
   }
+
+  .invalid-feedback {
+    display: none; /* Oculta por padrão */
+    width: 100%; /* Garante que ocupe a largura total do container */
+  }
+
+  .is-invalid .invalid-feedback {
+      display: block; /* Mostra apenas quando o input é inválido */
+  }
+
   
   

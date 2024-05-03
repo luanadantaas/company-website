@@ -13,7 +13,13 @@
   </head>
 
   <body>
-    <form>
+    <!-- Inclusão do jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap Bundle (inclui o Popper) JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../scripts/joinUs.js"></script>
+    <form onsubmit="event.preventDefault(); changePage();">
       <div class="text-center mb-4 font-color mt-4">
         <img class="mb-4" src="../../views/styles/images/markus/logoMarkusGray.png" alt="" >
         <h1 class="h2 mb-3 font-weight-normal ">Client Register</h1>
@@ -22,21 +28,22 @@
       <div class="form-row">
         <div class="form-group col-md-6 font-color">
             <label for="inputEmail">Email address</label>
-            <input type="email" id="inputEmail" class="form-control inputcolor" placeholder="name@email.com" required autofocus>
+            <input type="email" id="inputEmail" class="form-control inputcolor" placeholder="name@email.com" required>
         </div>
         <div class="form-group col-md-6 font-color">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control inputcolor" id="inputName" placeholder="First and Last name">
-          </div>
+            <input type="text" class="form-control inputcolor" id="inputName" placeholder="First and Last name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ]{2,}( [A-Za-zÀ-ÖØ-öø-ÿ]{2,})+" title="Please enter at least two words, each with at least two letters.">
+            <small class="form-text text-muted">Please enter at least two words, each with at least two letters.</small>
+        </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6 font-color">
           <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control inputcolor" id="inputPassword4">
+          <input type="password" class="form-control inputcolor" id="inputPassword4" required>
         </div>
         <div class="form-group col-md-6 font-color">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" class="form-control inputcolor" id="confirmPassword">
+          <input type="password" class="form-control inputcolor" id="confirmPassword" required>
         </div>
       </div>
       <div class="alert alert-warning" id="passwordWarning">
@@ -45,21 +52,22 @@
       <div class="form-row font-color">
         <div class="form-group col-md-5">
           <label for="inputPhone">Phone Number</label>
-          <input type="tel" class="form-control inputcolor" id="inputPhone">
+          <input type="tel" class="form-control inputcolor" id="inputPhone" oninput="maskPhone(this)" required>
         </div>
         <div class="form-group col-md-3 font-color">
           <label for="inputBirthday">Date of Birth</label>
-          <input type="text" class="form-control inputcolor" id="inputBirthday" placeholder="dd/mm/yyyy">
+          <input type="text" class="form-control inputcolor" id="inputBirthday" placeholder="dd/mm/yyyy" oninput="maskDate(this)" required onchange="checkAge(this)" pattern="\d{2}\/\d{2}\/\d{4}"  title="Please enter a valid date. Format: dd/mm/yyyy">
+          <div id="ageError" style="color:red; display:none;">You must be at least 18 years old.</div>
         </div>
         <div class="form-group col-md-4 font-color">
           <label for="inputCpf">CPF</label>
-          <input type="text" class="form-control inputcolor" id="inputCpf">
+          <input type="text" class="form-control inputcolor" id="inputCpf" oninput="maskCPF(this)" required onchange="checkCpf(this)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
         </div>
       </div>
       <div class="form-row font-color">
         <div class="form-group col-md-4">
             <label for="inputEducation">Education level</label>
-            <select id="inputEducation" class="form-control inputcolor ">
+            <select id="inputEducation" class="form-control inputcolor " required>
             <option value="1">Incomplete 1st degree</option>
             <option value="2">Complete 1st degree</option>
             <option value="3" selected>Complete 2nd degree</option>
@@ -70,7 +78,7 @@
         <div class="form-group col-md-8" style="display: grid;">
             <label for="civil" class="ml-4">Civil Status</label>
             <div >
-                <div class="form-check form-check-inline ml-5" >
+                <div class="form-check form-check-inline ml-5" required>
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
                     <label class="form-check-label" for="inlineRadio1">Single</label>
                 </div>
