@@ -1,5 +1,5 @@
 class User {
-    constructor(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil) {
+    constructor(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil, login, origin) {
         this.email = email;
         this.name = name;
         this.password = password;
@@ -9,6 +9,8 @@ class User {
         this.cpf = cpf;
         this.education = education;
         this.status_civil = status_civil;
+        this.login = login;
+        this.origin = origin;
     }
 }
 
@@ -24,12 +26,9 @@ function changePage() {
     let status_civil = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
 
 
-    const user = new User(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil);
+    const user = new User(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil, false, "register");
     localStorage.setItem('user', JSON.stringify(user));
     console.log("inserindo no localStorage:", user);
-
-    const valor = localStorage.getItem('user');
-    console.log("get localStorage:", valor);
 
     $('.modal-body').text('Validação realizada com sucesso');
     $('#modalLabel').text('Sucesso');

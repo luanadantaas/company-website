@@ -10,6 +10,26 @@ function changePage() {
     $('#validationModal').modal('show');
 }
 
+function resetPassword() {
+    let email = document.getElementById('inputEmail').value;
+    let password = document.getElementById('inputPassword').value;
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log(user);
+    if(email === user.email){
+        $('.modal-body').text('Validação realizada com sucesso');
+        $('#modalLabel').text('Sucesso');
+        $('#validationModal').modal('show');
+        user.password = password;
+        user.origin = "resetPassword";
+        localStorage.setItem('user', JSON.stringify(user));
+        console.log(user);
+    } else {
+        $('.modal-body').text('Email não confere');
+        $('#modalLabel').text('Error');
+        $('#validationModal').modal('show');
+    }
+}
+
 function validatePassword(input) {
     const regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%&*!?/\\|_+\-=.]).{6,}$/;
     const password = input.value;

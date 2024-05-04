@@ -1,14 +1,36 @@
+let validationSuccess = false;
+
 function changePage() {
+    window.location.href = "home.html";
+}
+
+function login() {
     let email = document.getElementById('inputEmail').value;
     let password = document.getElementById('inputPassword').value;
-
-    // Aqui você pode adicionar o código para fazer algo com os valores de email e senha
-    console.log('Email:', email, 'Password:', password);
-
-    // Por exemplo, você pode fazer uma chamada AJAX para enviar os dados sem recarregar a página
-    // fetch ou AJAX para enviar dados para o servidor aqui
-
-    window.location.href = "home.html";
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (email === user.email && password === user.password) {
+        console.log(user);
+        $('.modal-body').text('Validação realizada com sucesso');
+        $('#modalLabel').text('Sucesso');
+        $('#validationModal').modal('show');
+        validationSuccess = true;
+        user.login = true;
+        user.origin = "login";
+        localStorage.setItem('user', JSON.stringify(user));
+        console.log(user);
+    } else {
+        $('.modal-body').text('Email ou senhas não cadastrados');
+        $('#modalLabel').text('Error');
+        $('#validationModal').modal('show');
+        validationSuccess = false;
+    }
+    
+    document.getElementById('closeModalButton').addEventListener('click', function () {
+        if (validationSuccess) {
+            // Redireciona para outra página ao clicar no botão "Fechar"
+            window.location.href = 'home.html'; // Altere para a URL desejada
+        }
+    });
 }
 
 function clearFields() {
@@ -17,4 +39,5 @@ function clearFields() {
     
     document.getElementById('inputEmail').focus();
 }
+
 
