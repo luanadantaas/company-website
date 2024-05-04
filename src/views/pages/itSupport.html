@@ -15,7 +15,7 @@
   </head>
 
   <body class="bg-light">
-    <script src="./itSupport.html"></script>
+    <script src="../scripts/itSupport.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <header>
@@ -74,7 +74,7 @@
             <td>Done</td>
             <td>250.00</td>
             <td>05/02/2020</td>
-            <td id="deleterow1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <td id="deleterow1" onclick="name()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
             </svg></td>
@@ -86,7 +86,7 @@
             <td>Done</td>
             <td>570.00</td>
             <td>07/09/2022</td>
-            <td id="deleterow2" style="justify-content: center;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <td id="deleterow2" style="justify-content: center;" onclick="name()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
             </svg></td>
@@ -98,7 +98,7 @@
             <td>Pending</td>
             <td>1020.00</td>
             <td>05/05/2023</td>
-            <td id="deleterow3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <td id="deleterow3" onclick="deleteRow(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
             </svg></td>
@@ -109,13 +109,13 @@
         
         <div class="col-md-6 order-md-2">
           <h4 class="mb-3">New IT Support Request</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" onsubmit="event.preventDefault(); addServiceRequest()" novalidate>
             <hr class="mb-4">
             <div class="d-block my-3">
               <div class="form-row">
                 <div class="form-group col-md-6 mr-3">
                   <label for="inputService">Service Type</label>
-                  <select id="inputService" class="form-control inputcolor ">
+                  <select id="inputService" class="form-control inputcolor " onchange="updateServicePrice()">
                     <option></option>
                     <option value="1">User support</option>
                     <option value="2">It Infrastructure</option>
@@ -136,11 +136,11 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label for="servicePrice">Price:</label>
-                  <p></p>
+                  <p id="servicePrice"></p>
                 </div>       
                 <div class="form-group col-md-3">
                   <label for="deadlineDate">Deadline Date:</label>
-                  <p></p>
+                  <p id="deadlineDate"></p>
                 </div>   
               </div>
             </div>
@@ -155,36 +155,5 @@
         <ul class="list-inline">
       </footer>
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
   </body>
 </html>
