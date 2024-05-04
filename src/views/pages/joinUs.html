@@ -19,6 +19,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
     <script src="../scripts/joinUs.js"></script>
+
+    <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Mensagem de Validação</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Mensagem será inserida aqui -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <form onsubmit="event.preventDefault(); changePage();">
       <div class="text-center mb-4 font-color mt-4">
         <img class="mb-4" src="../../views/styles/images/markus/logoMarkusGray.png" alt="" >
@@ -28,7 +48,7 @@
       <div class="form-row">
         <div class="form-group col-md-6 font-color">
             <label for="inputEmail">Email address</label>
-            <input type="email" id="inputEmail" class="form-control inputcolor" placeholder="name@email.com" required>
+            <input type="email" id="inputEmail" class="form-control inputcolor" placeholder="name@email.com" required autofocus>
         </div>
         <div class="form-group col-md-6 font-color">
             <label for="inputName">Name</label>
@@ -39,11 +59,11 @@
       <div class="form-row">
         <div class="form-group col-md-6 font-color">
           <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control inputcolor" id="inputPassword4" required>
+          <input type="password" class="form-control inputcolor" id="inputPassword4" required onchange="validatePassword(this)">
         </div>
         <div class="form-group col-md-6 font-color">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" class="form-control inputcolor" id="confirmPassword" required>
+          <input type="password" class="form-control inputcolor" id="confirmPassword" required onchange="validateConfirmPassword(this)">
         </div>
       </div>
       <div class="alert alert-warning" id="passwordWarning">
@@ -52,7 +72,7 @@
       <div class="form-row font-color">
         <div class="form-group col-md-5">
           <label for="inputPhone">Phone Number</label>
-          <input type="tel" class="form-control inputcolor" id="inputPhone" oninput="maskPhone(this)" required>
+          <input type="tel" class="form-control inputcolor" id="inputPhone" oninput="maskPhone(this)">
         </div>
         <div class="form-group col-md-3 font-color">
           <label for="inputBirthday">Date of Birth</label>
@@ -88,18 +108,20 @@
                 </div>
                 <div class="form-check form-check-inline ml-3">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
-                    <label class="form-check-label" for="inlineRadio2">Divorced</label>
+                    <label class="form-check-label" for="inlineRadio3">Divorced</label>
                 </div>
                 <div class="form-check form-check-inline ml-3">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
-                    <label class="form-check-label" for="inlineRadio2">Widowed</label>
+                    <label class="form-check-label" for="inlineRadio4">Widowed</label>
                 </div>
             </div>
         </div>
       </div>
+      <div id="messageLabel" style="color:red;"></div>
       <div style="display: flex;">
         <button class="btn btn-lg btn-success btn-block mt-4 mr-2" type="submit">Sign up</button>
-        <button class="btn btn-lg btn-outline-success btn-block mt-4" type="reset">Reset</button>
+        <button class="btn btn-lg btn-outline-success btn-block mt-4 mr-2" onclick="clearFields()">Reset</button>
+        <button class="btn btn-lg btn-outline-danger btn-block mt-4" onclick="goBack()">Voltar</button>
       </div>
       <p class="font-color text-center mt-4"> Already have an account? <a href="logIn.html">Log In</a></p>
       <p class="mt-4 mb-3 text-muted text-center">&copy; 2022-2024 Markus, Inc</p>

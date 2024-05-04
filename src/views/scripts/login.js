@@ -11,3 +11,10 @@ function changePage() {
     window.location.href = "home.html";
 }
 
+function clearFields() {
+    document.getElementById('inputEmail').value = '';
+    document.getElementById('inputPassword').value = '';
+    
+    document.getElementById('inputEmail').focus();
+}
+

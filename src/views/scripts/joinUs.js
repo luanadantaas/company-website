@@ -1,3 +1,17 @@
+class User {
+    constructor(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.cpf = cpf;
+        this.education = education;
+        this.status_civil = status_civil;
+    }
+}
+
 function changePage() {
     let email = document.getElementById('inputEmail').value;
     let name = document.getElementById('inputName').value;
@@ -9,7 +23,21 @@ function changePage() {
     let education = document.getElementById('inputEducation').value;
     let status_civil = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
 
-    console.log(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil);
+
+    const user = new User(email, name, password, confirmPassword, phone, birthday, cpf, education, status_civil);
+    localStorage.setItem('user', JSON.stringify(user));
+    console.log("inserindo no localStorage:", user);
+
+    const valor = localStorage.getItem('user');
+    console.log("get localStorage:", valor);
+
+    $('.modal-body').text('Validação realizada com sucesso');
+    $('#modalLabel').text('Sucesso');
+    $('#validationModal').modal('show');
+}
+
+function goBack() {
+    window.history.back();
 }
 
 function maskCPF(input) {
@@ -70,11 +98,11 @@ function checkCpf(input) {
 
     cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
     
-    console.log(cpf);
+    input.setCustomValidity("");
     
     if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf))
         input.setCustomValidity('Please enter a valid CPF number.'); // Verifica se tem tamanho 11 ou se é uma sequência de dígitos iguais
-
+        console.log(cpf);
     let soma = 0, resto;
 
     // Verifica o primeiro dígito verificador
@@ -132,4 +160,35 @@ function checkAge(input) {
     }
 }
 
+function validatePassword(input) {
+    const regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%&*!?/\\|_+\-=.]).{6,}$/;
+    const password = input.value;
+    console.log(regex.test(password));
+    input.setCustomValidity("");
+    if (!regex.test(password)) {
+        input.setCustomValidity("Incorrect password. Please try again.");
+    }
+}
 
+function validateConfirmPassword(input) {
+    const confirmPassword = input.value;
+    const password = document.getElementById("inputPassword4").value;
+    input.setCustomValidity("");
+    if (!(password === confirmPassword)) {
+        input.setCustomValidity("Passwords do not match. Please try again.");
+    }
+}
+
+function clearFields() {
+    document.getElementById('inputEmail').value = '';
+    document.getElementById('inputName').value = '';
+    document.getElementById('inputPassword4').value = '';
+    document.getElementById('confirmPassword').value = '';
+    document.getElementById('inputPhone').value = '';
+    document.getElementById('inputBirthday').value = '';
+    document.getElementById('inputCpf').value = '';
+    document.getElementById('inputEducation').value = 3;
+    document.getElementById('inlineRadio1').checked = true;
+    
+    document.getElementById('inputEmail').focus();
+}
