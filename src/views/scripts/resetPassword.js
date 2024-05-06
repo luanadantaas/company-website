@@ -5,8 +5,8 @@ function changePage() {
 
     console.log(email, password, confirmPassword);
 
-    $('.modal-body').text('Validação realizada com sucesso');
-    $('#modalLabel').text('Sucesso');
+    $('.modal-body').text('Validation successfully completed.');
+    $('#modalLabel').text('Success');
     $('#validationModal').modal('show');
 }
 
@@ -16,15 +16,15 @@ function resetPassword() {
     const user = JSON.parse(localStorage.getItem('user'));
     console.log(user);
     if(email === user.email){
-        $('.modal-body').text('Validação realizada com sucesso');
-        $('#modalLabel').text('Sucesso');
+        $('.modal-body').text('Validation successfully completed.');
+        $('#modalLabel').text('Success');
         $('#validationModal').modal('show');
         user.password = password;
         user.origin = "resetPassword";
         localStorage.setItem('user', JSON.stringify(user));
         console.log(user);
     } else {
-        $('.modal-body').text('Email não confere');
+        $('.modal-body').text('Email not registered.');
         $('#modalLabel').text('Error');
         $('#validationModal').modal('show');
     }

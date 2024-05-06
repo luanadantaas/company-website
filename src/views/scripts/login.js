@@ -10,8 +10,8 @@ function login() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (email === user.email && password === user.password) {
         console.log(user);
-        $('.modal-body').text('Validação realizada com sucesso');
-        $('#modalLabel').text('Sucesso');
+        $('.modal-body').text('Validation successfully completed.');
+        $('#modalLabel').text('Success');
         $('#validationModal').modal('show');
         validationSuccess = true;
         user.login = true;
@@ -19,7 +19,7 @@ function login() {
         localStorage.setItem('user', JSON.stringify(user));
         console.log(user);
     } else {
-        $('.modal-body').text('Email ou senhas não cadastrados');
+        $('.modal-body').text('Email or passwords not registered.');
         $('#modalLabel').text('Error');
         $('#validationModal').modal('show');
         validationSuccess = false;

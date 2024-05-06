@@ -30,8 +30,8 @@ function changePage() {
     localStorage.setItem('user', JSON.stringify(user));
     console.log("inserindo no localStorage:", user);
 
-    $('.modal-body').text('Validação realizada com sucesso');
-    $('#modalLabel').text('Sucesso');
+    $('.modal-body').text('Validation successfully completed.');
+    $('#modalLabel').text('Success');
     $('#validationModal').modal('show');
 }
 
