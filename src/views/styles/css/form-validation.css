@@ -4,7 +4,11 @@
 img {
   height: 120px;
   width: min-content;
-  
+}
+
+.image-no-overflow {
+  overflow: visible;       /* Remove o corte */
+  overflow-clip-margin: 0; /* Desativa o efeito de corte na margem */
 }
 
 
