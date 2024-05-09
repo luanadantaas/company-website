@@ -3,8 +3,7 @@
     --input-padding-y: .75rem;
   }
   
-  html,
-  body {
+  html {
     height: 100%;
   }
   
@@ -21,7 +20,9 @@
     justify-content: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #202020;;
+    background-color: #1e1e1e;
+    min-height: 100px;
+    margin: 0;
   }
   
   .form-signin {
@@ -90,9 +91,14 @@
   }
   
   img {
-    height: 80px;
+    height: 120px;
     width: min-content;
-    
+  }
+
+  
+  .image-no-overflow {
+    overflow: visible;       /* Remove o corte */
+    overflow-clip-margin: 0; /* Desativa o efeito de corte na margem */
   }
   
   .btn-primary {
@@ -133,6 +139,38 @@
   .is-invalid .invalid-feedback {
       display: block; /* Mostra apenas quando o input é inválido */
   }
+
+.form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+    background-color: #282828;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.form-label-group {
+    margin-bottom: 1rem;
+}
+
+.font-color {
+    color: #ffffff;
+}
+
+.left {
+    text-align: left;
+}
+
+.btn-success, .btn-outline-success, .btn-outline-danger {
+    margin-bottom: 1rem;
+}
+
+.modal-body {
+    text-align: left;
+}
+
 
   
   

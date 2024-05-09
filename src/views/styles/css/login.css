@@ -3,8 +3,7 @@
   --input-padding-y: .75rem;
 }
 
-html,
-body {
+html {
   height: 100%;
 }
 
@@ -21,7 +20,9 @@ body {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #202020;;
+  background-color: #1e1e1e;
+  min-height: 100px;
+  margin: 0;
 }
 
 .form-signin {
